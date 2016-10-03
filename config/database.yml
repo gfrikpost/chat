@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: chat_development
+
+test:
+  <<: *default
+  database: chat_test
+
+production:
+  <<: *default
+  database: chat_production

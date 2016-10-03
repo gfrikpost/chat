@@ -1,0 +1,17 @@
+p= link_to('Sing out', session_path(current_user),method: :delete)
+p= link_to('Settings', edit_user_path(current_user))
+
+.messages
+  - @messages.each do |message|
+    - user = message.user
+    p
+      strong class="user-name-id-#{user.id}"
+        = user.name
+      span
+        ' :
+      span=message.text
+
+
+= form_for @message, url: {action: 'create' }, html: { class: 'form-signin' }, remote: true do |f|
+  = f.text_area :text, class: 'form-control'
+  = f.submit 'Send', class: 'btn btn-lg btn-primary btn-block'

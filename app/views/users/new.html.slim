@@ -1,0 +1,11 @@
+= form_for @user, url: {action: 'create' }, html: { class: 'form-signin' } do |f|
+  h2.form-signin-heading
+    ' Please sign up or
+    span
+      = link_to('Sign in', new_session_path)
+
+  = f.text_field :name, class: 'form-control', placeholder: 'Name'
+  = f.password_field :password, class: 'form-control', placeholder: 'Password'
+  = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation'
+  = f.submit 'Sign up', class: 'btn btn-lg btn-primary btn-block'
+
